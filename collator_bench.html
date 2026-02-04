@@ -697,6 +697,7 @@ let data = [
         coll: "sv-u-kn-true",
         arr: filenames,
     },
+    // Root collation
     {
         name: "English Latin1",
         coll: "en",
@@ -707,6 +708,9 @@ let data = [
         coll: "en",
         arr: en.map(toUTF16),
     },
+    // Swedish stands in for code paths of interest
+    // to pretty much all tailored Latin except Vietnamese
+    // and German phonebook.
     {
         name: "Swedish Latin1",
         coll: "sv",
@@ -717,31 +721,38 @@ let data = [
         coll: "sv",
         arr: sv.map(toUTF16),
     },
+    // For Latin1 to UTF-16 comparisons.
     {
         name: "Polish Latin1/UTF-16 mix",
         coll: "pl",
         arr: pl,
     },
+    // Algorithmically simple tailoring case
+    // with large data structure size.
     {
         name: "Chinese (Pinyin order)",
         coll: "zh-u-co-pinyin",
         arr: zh,
     },
+    // Bench/PGO value-add of another order unclear.
     {
         name: "Chinese (stroke order)",
         coll: "zh-u-co-stroke",
         arr: zh,
     },
+    // Bench/PGO value-add unclear if Greek is added.
     {
         name: "Japanese",
         coll: "ja",
         arr: kana_kanji,
     },
+    // Algorithmic special case.
     {
         name: "Korean",
         coll: "ko",
         arr: ko,
     },
+    // Unverified if this workload actually exercises the interesting code paths.
     {
         name: "Thai",
         coll: "th",
